@@ -1,6 +1,6 @@
 # Cópia do Trello
 
-Bem-vindo a Copia do Trello! Este é um aplicativo web de aprendizado que replica funcionalidades do Trello. Crie quadros, listas e cartões para gerenciar tarefas. Tecnologias: HTML, CSS e JavaScript. 
+Bem-vindo a Copia do Trello! Este é um aplicativo web de aprendizado que replica funcionalidades do Trello. Crie quadros, listas e cartões para gerenciar tarefas. Tecnologias: HTML, CSS e JavaScript.
 
 ## Funcionalidades
 
@@ -12,7 +12,7 @@ Arraste e solte cartões, adicione colunas e tasks, mude a cor do background, re
 - 🐗 [@conradocmatheus](https://github.com/conradocmatheus)
 - 🐵 [@hoesel15](https://github.com/hoesel15)
 - 🐟 [@knevctt](https://github.com/knevctt)
-- 🦾[@PauloGabrielX](https://github.com/PauloGabrielX)
+- 🦾 [@PauloGabrielX](https://github.com/PauloGabrielX)
 
 ## Tecnologias Utilizadas
 
