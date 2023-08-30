@@ -1,10 +1,10 @@
 # Cópia do Trello
 
-Bem-vindo a Copia do Trello! Este é um aplicativo web de aprendizado que replica funcionalidades do Trello. Crie quadros, listas e cartões para gerenciar tarefas. Tecnologias: HTML, CSS e JavaScript. Arraste e solte cartões, adicione detalhes, faça login.
+Bem-vindo a Copia do Trello! Este é um aplicativo web de aprendizado que replica funcionalidades do Trello. Crie quadros, listas e cartões para gerenciar tarefas. Tecnologias: HTML, CSS e JavaScript. 
 
-## Objetivo
+## Funcionalidades
 
-O objetivo desse projeto é por meio da prática, aprender a como utilizar as tecnologias anteriormente mencionadas.
+Arraste e solte cartões, adicione colunas e tasks, mude a cor do background, remova colunas e tasks.
 
 ## Colaboradores
 
