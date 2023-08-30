@@ -9,7 +9,7 @@ O objetivo desse projeto é por meio da prática, aprender a como utilizar as te
 ## Colaboradores
 
 - [@devgraciotim](https://github.com/devgraciotim)
-- [@conradocmatheus](https://github.com/conradocmatheus)
+- 🐗 [@conradocmatheus](https://github.com/conradocmatheus)
 - [@hoesel15](https://github.com/hoesel15)
 - [@knevctt](https://github.com/knevctt)
 - [@PauloGabrielX](https://github.com/PauloGabrielX)
