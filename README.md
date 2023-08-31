@@ -11,8 +11,8 @@ Arraste e solte cartões, adicione colunas e tasks, mude a cor do background, re
 - 🐧 [@devgraciotim](https://github.com/devgraciotim)
 - 🐗 [@conradocmatheus](https://github.com/conradocmatheus)
 - 🐵 [@hoesel15](https://github.com/hoesel15)
-- 🐟 [@knevctt](https://github.com/knevctt)
-- 🦾 [@PauloGabrielX](https://github.com/PauloGabrielX)
+- 🐟 [@knevctt](https://github.com/knevctt) 
+- 🦾 [@PauloGabrielX](https://github.com/PauloGabrielX) 
 
 ## Tecnologias Utilizadas
 
