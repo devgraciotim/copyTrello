@@ -1,8 +1,46 @@
-let color = localStorage.getItem('bgColor');
-document.body.style.backgroundColor = color;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
+header {
+    background-color: rgb(43, 43, 43);
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    color: white;
+}
 
-document.addEventListener('click', function (event) {
-    const colorPick = document.getElementById('colorPick');
-    event.target !== colorPick && event.target !== document.querySelector('button') ? colorPick.style.display = 'none' : false
-});
+#colorPick {
+    display: none;
+    position: absolute;
+    width: 2rem;
+    background-color: transparent;
+    right: 2.4rem;
+    top: 3.5rem;
+}
+
+#colorPick button {
+    width: 2rem;
+    height: 2rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+#colorPick button:hover {
+    transform: translateX(-5px);
+}
+
+.buttonColor {
+    width: 2.5rem;
+    color: black;
+    background-color: white;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.buttonColor:hover {
+    transform: translateY(-5px);
+}
