@@ -45,7 +45,8 @@
         </header>
         <main id="mainContent">
             <div class="columns">
-                <div class="column" id="tasktoDo">
+                <div class="column" id="task-toDo">
+                    <div id="taks-Td"></div>
                     <h2 class="column-title">To Do</h2>
                     <label for="taskNameInput">Name:</label>
                     <input type="text" id="taskNameInput" />
@@ -55,10 +56,7 @@
                         cols="32"
                         rows="10"
                     ></textarea>
-                    <button
-                        class="addTask-button"
-                        onclick="addTask('tasktoDo')"
-                    >
+                    <button class="addTask-button" onclick="addTask()">
                         ADD TASK
                     </button>
                 </div>

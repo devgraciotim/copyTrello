@@ -1,4 +1,4 @@
 function addTask() {
-    let taskNameInput = document.getElementById("tasktoDo").value
+    const taskNameInput = document.getElementById("taskNameInput").value
     console.log(taskNameInput)
 }
