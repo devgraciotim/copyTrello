@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 header {
@@ -43,4 +44,28 @@ header {
 
 .buttonColor:hover {
     transform: translateY(-5px);
+}
+
+.columns {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.column {
+    margin-top: 2rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(43, 43, 43);
+    color: white;
+    border-radius: 2rem;
+    letter-spacing: 2px;
+}
+
+#taskDescriptionInput {
+    resize: none;
+}
+
+.column-title {
+    margin-bottom: 2rem;
 }
