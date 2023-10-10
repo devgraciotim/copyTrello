@@ -13,8 +13,13 @@ function createTask(nameInput, descInput) {
     taskName.innerText = nameInput
     const taskDesc = document.createElement("p")
     taskDesc.innerText = descInput
+    const removeTaskButton = document.createElement("button")
 
-    taskContainer.append(taskName, taskDesc)
+    taskContainer.append(taskName, taskDesc, removeTaskButton)
 
     return taskContainer
+}
+
+function removeTask() {
+
 }
