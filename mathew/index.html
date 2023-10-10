@@ -28,11 +28,11 @@
             <div class="columns">
                 <div class="column" id="todo">
                     <h2 class="columnTitle">To Do</h2>
-                    <div id="taksTodo"></div>
+                    <div id="todo-taskContainer" class="taskBox"></div>
                     <label for="todo-nameInput">Name:</label>
                     <input id="todo-nameInput" type="text" />
-                    <label for="todo-DescInput">Description:</label>
-                    <textarea id="todo-DescInput" cols="32" rows="10"></textarea>
+                    <label for="todo-descInput">Description:</label>
+                    <textarea id="todo-descInput" cols="32" rows="10"></textarea>
                     <button class="addTask-button" onclick="addTask('todo')">
                         ADD TASK
                     </button>
@@ -40,11 +40,11 @@
 
                 <div class="column" id="inP">
                     <h2 class="columnTitle">In Progress</h2>
-                    <div id="taksInP"></div>
+                    <div id="inP-taskContainer" class="taskBox"></div>
                     <label for="">Name:</label>
-                    <input id="inP-NameInput" type="text" />
-                    <label for="inP-DescInput">Description:</label>
-                    <textarea id="inP-DescInput" cols="32" rows="10"></textarea>
+                    <input id="inP-nameInput" type="text" />
+                    <label for="inP-descInput">Description:</label>
+                    <textarea id="inP-descInput" cols="32" rows="10"></textarea>
                     <button class="addTask-button" onclick="addTask('inP')">
                         ADD TASK
                     </button>
@@ -52,11 +52,11 @@
 
                 <div class="column" id="done">
                     <h2 class="columnTitle">Done</h2>
-                    <div id="taksDone"></div>
-                    <label for="done-NameInput">Name:</label>
-                    <input id="done-NameInput" type="text" />
-                    <label for="done-DescriptionInput">Description:</label>
-                    <textarea id="done-DescriptionInput" cols="32" rows="10"></textarea>
+                    <div id="done-taskContainer" class="taskBox"></div>
+                    <label for="done-nameInput">Name:</label>
+                    <input id="done-nameInput" type="text" />
+                    <label for="done-descInput">Description:</label>
+                    <textarea id="done-descInput" cols="32" rows="10"></textarea>
                     <button class="addTask-button" onclick="addTask('done')">
                         ADD TASK
                     </button>
