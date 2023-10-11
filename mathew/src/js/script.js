@@ -3,6 +3,7 @@ function addTask(columnId) {
     const descInput = document.getElementById(`${columnId}-descInput`).value
     const taskCreated = createTask(nameInput, descInput)
     document.getElementById(`${columnId}-taskContainer`).append(taskCreated)
+    saveTask()
 }
 
 function createTask(nameInput, descInput) {
@@ -33,15 +34,14 @@ function saveTask() {
     columns.forEach(column => {
         const columnId = column.id
         tasks[columnId] = []
-
         const taskContent = document.querySelectorAll(".taskContainer")
 
-        taskContent.forEach(task => {
-            const name = taskContent.querySelector(".taskName").innerText
-            const desc = taskContent.querySelector(".taskDesc").innerText
+        taskContent.forEach(taskElements => {
+            const name = taskElements.querySelector(".taskName").innerText
+            const desc = taskElements.querySelector(".taskDesc").innerText
             tasks[columnId].push({ taskName: name, taskDesc: desc })
         })
     })
-
-    localStorage.setItem("taskKey", tasks)
+    console.log(tasks)
+    localStorage.setItem("taskKey", JSON.stringify(tasks))
 }
