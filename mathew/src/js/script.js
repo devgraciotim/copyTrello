@@ -23,7 +23,9 @@ function createTask(nameInput, descInput) {
     return taskContainer
 }
 
-function removeTask() {
+function removeTask(taskElement) {
+    taskElement.remove()
+    saveTasks()
 
 }
 
