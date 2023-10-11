@@ -23,12 +23,6 @@ function createTask(nameInput, descInput) {
     return taskContainer
 }
 
-function removeTask(taskElement) {
-    taskElement.remove()
-    saveTasks()
-
-}
-
 function saveTask() {
     const columns = document.querySelectorAll(".column")
     const tasks = {}
@@ -47,3 +41,10 @@ function saveTask() {
     console.log(tasks)
     localStorage.setItem("taskKey", JSON.stringify(tasks))
 }
+
+function removeTask(taskElement) {
+    taskElement.remove()
+    saveTasks()
+
+}
+
