@@ -48,3 +48,23 @@ function removeTask(taskElement) {
 
 }
 
+function loadTasks() {
+    const columns = document.querySelectorAll('.column')
+    const tasks = JSON.parse(localStorage.getItem('tasks'))
+
+    if (tasks) {
+        columns.forEach(column => {
+            const columnId = column.id
+            const taskContent = tasks[columnId]
+
+            if (taskContent) {
+                taskContent.forEach(task => {
+                    const taskElement = createTask(task.name, task.desc)
+
+                    document.getElementById(`${columnId}-taskContainer`).appendChild(taskElement)
+                })
+            }
+        })
+
+    }
+}
