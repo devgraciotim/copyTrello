@@ -43,7 +43,7 @@ function saveTask() {
 
 function removeTask(taskElement) {
 	taskElement.remove();
-	saveTasks();
+	saveTask();
 }
 
 function loadTasks() {
