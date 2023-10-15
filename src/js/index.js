@@ -1,104 +1,117 @@
-function addTask(columnId) {
-    const taskName = document.getElementById(`${columnId}-taskNameInput`).value
-    const taskDescription = document.getElementById(`${columnId}-taskDescription`).value
+function createColumnElements() {
+    const elements = document.createElement('div')
 
-    if (taskName.trim() !== '') {
-        document.getElementById(`${columnId}-taskContent`).appendChild(createTaskElements(taskName, taskDescription))
+    const inputTitleColumn = document.createElement('input')
+    inputTitleColumn.className = 'inputTitleColumn'
+    inputTitleColumn.type = 'text'
+    inputTitleColumn.placeholder = 'Insira o Titulo da Coluna'
 
-        document.getElementById(`${columnId}-taskNameInput`).value = ''
-        document.getElementById(`${columnId}-taskDescription`).value = ''
-    }
-    else {
-        alert("Favor inserir um titulo para a task")
-    }
+    const buttonsContainer = document.createElement('div')
+    buttonsContainer.className = 'buttonsContainer'
 
-    saveTasks()
+    const addColumnBtn = document.createElement('button')
+    addColumnBtn.innerText = 'Adicionar Coluna'
+    addColumnBtn.className = 'addColumn'
+
+    const returnBtn = document.createElement('button')
+    returnBtn.innerText = 'X'
+    returnBtn.className = 'returnBtn'
+
+    buttonsContainer.append(addColumnBtn, returnBtn)
+    elements.append(inputTitleColumn, buttonsContainer)
+    return elements
 }
 
-function createTaskElements(taskName, taskDescription) {
-    const newTaskElement = document.createElement('div')
-    newTaskElement.className = 'taskElement'
-    newTaskElement.draggable = true
-    newTaskElement.ondragstart = drag(ev)
+function addColumnElements() {
+    const addColumnBtn = document.getElementById('addColumnBtn')
+    const dinamicContainer = document.getElementById('dinamicContainer')
+    const elements = createColumnElements()
 
-    const taskTitle = document.createElement('h2')
-    taskTitle.className = 'taskTitle'
-    taskTitle.innerText = taskName
+    dinamicContainer.querySelector('#addColumnBtn') === addColumnBtn
+        ? (dinamicContainer.innerHTML = '', dinamicContainer.appendChild(elements))
+        : null
 
-    const taskDescriptionElement = document.createElement('h4')
-    taskDescriptionElement.className = 'taskDescription'
-    taskDescriptionElement.innerText = taskDescription
-
-    const removeButton = document.createElement('button')
-    removeButton.innerHTML = '<i class="fa-solid fa-trash"></i>'
-    removeButton.className = 'removeButton'
-    removeButton.addEventListener('click', () => removeTask(newTaskElement));
-
-    newTaskElement.append(taskTitle, taskDescriptionElement, removeButton)
-
-    return newTaskElement
-}
-
-function saveTasks() {
-    const columns = document.querySelectorAll('.column')
-    const tasks = {}
-
-    columns.forEach(column => {
-        const columnId = column.id
-        const tasksColumn = column.querySelectorAll('.taskElement')
-        const taskContent = []
-
-        tasksColumn.forEach(task => {
-            const taskName = task.querySelector('.taskTitle').innerText
-            const taskDescription = task.querySelector('.taskDescription').innerText
-            taskContent.push({ name: taskName, description: taskDescription })
-        })
-
-        tasks[columnId] = taskContent
+    dinamicContainer.querySelector('.returnBtn').addEventListener('click', function () {
+        dinamicContainer.innerHTML = ''
+        dinamicContainer.appendChild(addColumnBtn)
     })
 
-    console.log(tasks)
-    localStorage.setItem('tasks', (JSON.stringify(tasks)))
+    dinamicContainer.querySelector('.addColumn').addEventListener('click', function () {
+        const title = dinamicContainer.querySelector('.inputTitleColumn').value
+        if (title) {
+            addColumn(title)
+        }
+        else {
+            alert('Insira um Titulo para a Coluna')
+        }
+    })
 }
 
-function loadTasks() {
-    const columns = document.querySelectorAll('.column');
-    const tasks = JSON.parse(localStorage.getItem('tasks'));
+function createColumn(title) {
+    const column = document.createElement('div')
+    column.className = 'column'
 
-    if (tasks) {
-        columns.forEach(column => {
-            const columnId = column.id
-            const taskContent = tasks[columnId]
+    const columnTitleEl = document.createElement('h1')
+    columnTitleEl.innerText = title
 
-            if (taskContent) {
-                taskContent.forEach(task => {
-                    const taskName = task.name
-                    const taskDescription = task.description
+    const tasksContainer = document.createElement('div')
+    tasksContainer.className = 'tasksContainer'
 
-                    const taskElement = createTaskElements(taskName, taskDescription)
+    const addTaskBtn = document.createElement('button')
+    addTaskBtn.innerHTML = '<i class="fa-solid fa-circle-plus"></i>'
+    addTaskBtn.addEventListener('click', () => {
+        addTaskInputs(parentElement)
+    })
 
-                    document.getElementById(`${columnId}-taskContent`).appendChild(taskElement)
-                })
-            }
-        })
-    }
+    column.append(columnTitleEl, tasksContainer, addTaskBtn)
+    return column
 }
 
-function removeTask(taskElement) {
-    taskElement.remove()
-    saveTasks()
+function addColumn(columnTitle) {
+    const column = createColumn(columnTitle)
+    document.querySelector('.columns').append(column)
 }
 
-function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-} 
+function createTaskInputs() {
+    const taskInputs = document.createElement('div')
+    taskInputs.className = 'taskInputs'
 
-function allowDrop(ev) {
-    ev.preventDefault();
+    const taskNameInput = document.createElement('input')
+    taskNameInput.placeholder = 'Insira o Nome da Task'
+    const taskDescriptionArea = document.createElement('textarea')
+    taskDescriptionArea.placeholder = 'Insira a Descrição'
+
+    const taskInputsBtns = document.createElement('div')
+    taskInputsBtns.className = 'taskInputsBtns'
+    const cancelTaskBtn = document.createElement('button')
+    cancelTaskBtn.innerHTML = '<i class="fa-solid fa-x"></i>'
+    const createTaskBtn = document.createElement('button')
+    createTaskBtn.innerHTML = '<i class="fa-solid fa-check"></i>'
+
+
+    taskInputsBtns.append(cancelTaskBtn, createTaskBtn)
+    taskInputs.append(taskNameInput, taskDescriptionArea, taskInputsBtns)
+    return taskInputs
 }
 
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
+function addTaskInputs(parentElement) {
+    const taskInputs = createTaskInputs();
+    parentElement.querySelector('.tasksContainer').append(taskInputs);
+
+    const taskNameInput = taskInputs.querySelector('input');
+    const taskDescriptionArea = taskInputs.querySelector('textarea');
+
+    const taskContainer = createElement({ taskNameInput, taskDescriptionArea })
+    parentElement.querySelector('.tasksContainer').append(taskContainer);
+}
+
+function createTaskElements({ taskNameInput, taskDescriptionArea }) {
+    const taskContainer = document.createElement('div')
+    const taskName = document.createElement('h4')
+    taskName.innerText = taskNameInput.value
+    const taskDescription = document.createElement('p')
+    taskDescription.innerText = taskDescriptionArea.value
+
+    taskContainer.append(taskName, taskDescription)
+    return taskContainer
 }

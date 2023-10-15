@@ -1,7 +1,51 @@
-* {
-    border: 0;
-    margin: 0;
-    box-sizing: border-box;
+#mainContent {
+    padding: 2rem;
+    display: flex;
+    overflow-x: scroll;
+    height: 90vh;
+}
+
+#dinamicContainer {
+    min-width: 15rem;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background-color: white;
+    text-align: center;
+    margin: 0 2rem;
+    height: fit-content;
+}
+
+#addColumnBtn {
+    font-size: 1rem;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+#dinamicContainer div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5rem;
+}
+
+#dinamicContainer div input {
+    border: 1px black solid;
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+#dinamicContainer div div {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+}
+
+.buttonsContainer button {
+    background-color: gray;
+    color: white;
+    padding: .5rem;
+    border-radius: .5rem;
 }
 
 .columns {
@@ -10,42 +54,55 @@
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(43, 43, 43);
-    padding: 1rem;
-    border-radius: 1rem;
-    margin: 2rem;
-    color: white;
-    height: fit-content;
-}
-
-.column form {
-    display: flex;
-    flex-direction: column;
-}
-
-.column form textarea {
-    resize: none;
-}
-
-.titleColumn {
-    margin-bottom: 1rem;
-}
-
-form button {
-    margin: 1rem 0;
-    cursor: pointer;
-}
-
-.taskElement {
     background-color: white;
-    color: black;
-    border-radius: .3rem;
-    margin: .5rem 0;
+    width: 20rem;
+    margin: 0 2rem;
+    height: fit-content;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: .5rem;
+}
+
+.column button {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: gray;
+}
+
+.taskInputs {
+    background-color: gray;
+    border-radius: .5rem;
+    text-align: center;
     padding: .5rem;
 }
 
-.removeButton {
+.taskInputs textarea {
+    resize: none;
+    width: 80%;
+    border-radius: .3rem;
+    padding: .5rem;
+}
+
+.taskInputs input {
+    width: 80%;
+    margin-bottom: .2rem;
+    border-radius: .3rem;
+    padding: .5rem;
+}
+
+.taskInputsBtns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.taskInputsBtns button {
+    border-radius: .3rem;
+    padding: .2rem;
+    width: 2rem;
     cursor: pointer;
 }

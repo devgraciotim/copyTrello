@@ -8,84 +8,24 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copy Trello</title>
+    <title>LaTrell</title>
 </head>
 
 <body>
     <header>
-        <h1>Copy Trello</h1>
-        <button onclick="toggleColorPick()" class="buttonColor"><i class="fa-solid fa-paint-roller"></i></button>
-        <div id="colorPick">
-            <button style="background-color: #630000;" onclick="changeColor('#630000')"></button>
-            <button style="background-color: #070e70;" onclick="changeColor('#070e70')"></button>
-            <button style="background-color: #385513;" onclick="changeColor('#385513')"></button>
-            <button style="background-color: #590374;" onclick="changeColor('#590374')"></button>
-            <button style="background-color: #881843;" onclick="changeColor('#881843')"></button>
-            <button style="background-color: #75880c;" onclick="changeColor('#75880c')"></button>
-        </div>
+        <h1>LaTrell</h1>
     </header>
 
     <section id="mainContent">
-        <div class="columns" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <div class="column" id="todo" draggable="true" ondragstart="drag(event)">
-                <h1 class="titleColumn">A Fazer</h1>
-                
-                <div id="todo-taskContent">
-                
-                </div>
+        <div class="columns">
+        </div>
 
-                <form>
-                    <label for="todo-taskNameInput">Nome:</label>
-                    <input type="text" id="todo-taskNameInput">
-                    <label for="todo-taskDescription">Descrição:</label>
-                    <textarea cols="25" rows="5" id="todo-taskDescription"></textarea>
-                    <button type="button" onclick="addTask('todo')">Adicionar Task</button>
-                </form>
-            </div>
-
-            <div class="column" id="inProgress" draggable="true" ondragstart="drag(event)">
-                <h1 class="titleColumn">Em Progresso</h1>
-
-                <div id="inProgress-taskContent">
-
-                </div>
-
-                <form>
-                    <label for="inProgress-taskNameInput">Nome:</label>
-                    <input type="text" id="inProgress-taskNameInput">
-                    <label for="inProgress-taskDescription">Descrição:</label>
-                    <textarea cols="25" rows="5" id="inProgress-taskDescription"></textarea>
-                    <button type="button" onclick="addTask('inProgress')">Adicionar Task</button>
-                </form>
-            </div>
-
-            <div class="column" id="done" draggable="true" ondragstart="drag(event)">
-                <h1 class="titleColumn">Concluido</h1>
-
-                <div id="done-taskContent">
-
-                </div>
-
-                <form>
-                    <label for="done-taskNameInput">Nome:</label>
-                    <input type="text" id="done-taskNameInput">
-                    <label for="done-taskDescription">Descrição:</label>
-                    <textarea cols="25" rows="5" id="done-taskDescription"></textarea>
-                    <button type="button" onclick="addTask('done')">Adicionar Task</button>
-                </form>
-            </div>
+        <div id="dinamicContainer">
+            <button id="addColumnBtn" onclick="addColumnElements()">+ Adicionar Coluna</button>
         </div>
     </section>
 
-    <script src="./src/js/loadAplication.js"></script>
-    <script src="./src/js/bgColor.js"></script>
     <script src="./src/js/index.js"></script>
-
-    <script>
-        addEventListener('DOMContentLoaded', function() {
-            loadTasks()
-        })
-    </script>
 </body>
 
 </html>
