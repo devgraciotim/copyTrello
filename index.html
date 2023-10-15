@@ -26,12 +26,12 @@
     </header>
 
     <section id="mainContent">
-        <div class="columns" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <div class="column" id="todo" draggable="true" ondragstart="drag(event)">
+        <div class="columns">
+            <div class="column" id="todo">
                 <h1 class="titleColumn">A Fazer</h1>
-                
+
                 <div id="todo-taskContent">
-                
+
                 </div>
 
                 <form>
@@ -43,7 +43,7 @@
                 </form>
             </div>
 
-            <div class="column" id="inProgress" draggable="true" ondragstart="drag(event)">
+            <div class="column" id="inProgress">
                 <h1 class="titleColumn">Em Progresso</h1>
 
                 <div id="inProgress-taskContent">
@@ -59,7 +59,7 @@
                 </form>
             </div>
 
-            <div class="column" id="done" draggable="true" ondragstart="drag(event)">
+            <div class="column" id="done">
                 <h1 class="titleColumn">Concluido</h1>
 
                 <div id="done-taskContent">
@@ -82,7 +82,7 @@
     <script src="./src/js/index.js"></script>
 
     <script>
-        addEventListener('DOMContentLoaded', function() {
+        addEventListener('DOMContentLoaded', function () {
             loadTasks()
         })
     </script>

@@ -18,8 +18,6 @@ function addTask(columnId) {
 function createTaskElements(taskName, taskDescription) {
     const newTaskElement = document.createElement('div')
     newTaskElement.className = 'taskElement'
-    newTaskElement.draggable = true
-    newTaskElement.ondragstart = drag(ev)
 
     const taskTitle = document.createElement('h2')
     taskTitle.className = 'taskTitle'
@@ -87,18 +85,4 @@ function loadTasks() {
 function removeTask(taskElement) {
     taskElement.remove()
     saveTasks()
-}
-
-function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-} 
-
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
 }
