@@ -21,6 +21,7 @@ function addTask(columnId) {
 function createTaskElements(taskName, taskDescription) {
 	const newTaskElement = document.createElement("div");
 	newTaskElement.className = "taskElement";
+	newTaskElement.setAttribute("draggable", "true");
 
 	const taskTitle = document.createElement("h2");
 	taskTitle.className = "taskTitle";
