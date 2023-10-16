@@ -22,6 +22,7 @@ function createTaskElements(taskName, taskDescription) {
 	const newTaskElement = document.createElement("div");
 	newTaskElement.className = "taskElement";
 	newTaskElement.setAttribute("draggable", "true");
+	newTaskElement.setAttribute("ondragstart", "drag(event)");
 
 	const taskTitle = document.createElement("h2");
 	taskTitle.className = "taskTitle";
