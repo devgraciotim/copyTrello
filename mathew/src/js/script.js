@@ -17,6 +17,9 @@ function createTask(nameInput, descInput) {
     taskDesc.className = "taskDesc"
     taskDesc.innerText = descInput
     const removeTaskButton = document.createElement("button")
+    removeTaskButton.addEventListener('click', function () {
+        removeTask(taskContainer)
+    })
 
     taskContainer.append(taskName, taskDesc, removeTaskButton)
 
@@ -30,7 +33,7 @@ function saveTask() {
     columns.forEach(column => {
         const columnId = column.id
         tasks[columnId] = []
-        const taskContent = document.querySelectorAll(".taskContainer")
+        const taskContent = column.querySelectorAll(".taskContainer")
 
         taskContent.forEach(taskElements => {
             const name = taskElements.querySelector(".taskName").innerText
@@ -50,7 +53,8 @@ function removeTask(taskElement) {
 
 function loadTasks() {
     const columns = document.querySelectorAll('.column')
-    const tasks = JSON.parse(localStorage.getItem('tasks'))
+    const tasks = JSON.parse(localStorage.getItem('taskKey'))
+    console.log(tasks)
 
     if (tasks) {
         columns.forEach(column => {
@@ -59,7 +63,7 @@ function loadTasks() {
 
             if (taskContent) {
                 taskContent.forEach(task => {
-                    const taskElement = createTask(task.name, task.desc)
+                    const taskElement = createTask(task.taskName, task.taskDesc)
 
                     document.getElementById(`${columnId}-taskContainer`).appendChild(taskElement)
                 })
@@ -68,3 +72,5 @@ function loadTasks() {
 
     }
 }
+
+loadTasks()
