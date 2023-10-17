@@ -22,7 +22,7 @@ function createTaskElements(taskName, taskDescription) {
   const newTaskElement = document.createElement("div");
   newTaskElement.className = "taskElement";
   newTaskElement.draggable = 'true'
-  newTaskElement.ondragstart = 'drag(event)'
+  newTaskElement.addEventListener('dragstart', drag)
 
   const taskTitle = document.createElement("h2");
   taskTitle.className = "taskTitle";
@@ -32,12 +32,12 @@ function createTaskElements(taskName, taskDescription) {
   taskDescriptionElement.className = "taskDescription";
   taskDescriptionElement.innerText = taskDescription;
 
-  const removeButton = document.createElement("button");
-  removeButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
-  removeButton.className = "removeButton";
-  removeButton.addEventListener("click", () => removeTask(newTaskElement));
+  const revomeTaksElement = document.createElement("div");
+  revomeTaksElement.innerHTML = '<i class="fa-solid fa-trash"></i>';
+  revomeTaksElement.className = "revomeTaksElement";
+  revomeTaksElement.addEventListener("click", () => removeTask(newTaskElement));
 
-  newTaskElement.append(taskTitle, taskDescriptionElement, removeButton);
+  newTaskElement.append(taskTitle, taskDescriptionElement, revomeTaksElement);
 
   return newTaskElement;
 }
@@ -90,8 +90,12 @@ function loadTasks() {
 }
 
 function removeTask(taskElement) {
-  taskElement.remove();
-  saveTasks();
+	const confirmation = confirm('Deseja remover a Task?')
+	if(confirmation) {
+		taskElement.remove();
+  		saveTasks();
+	}
+  
 }
 
 loadTasks();

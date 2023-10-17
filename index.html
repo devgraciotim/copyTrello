@@ -49,10 +49,10 @@
 		</header>
 
 		<section id="mainContent">
-			<div class="columns">
+			<div class="columns" ondrop="drop(event)" ondragover="allowDrop(event)">
 				<div
 					class="column"
-					id="todo">
+					id="todo" draggable="true" ondragstart="drag(event)">
 					<h1 class="titleColumn">A Fazer</h1>
 
 					<div id="todo-taskContent" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
@@ -77,7 +77,7 @@
 
 				<div
 					class="column"
-					id="inProgress">
+					id="inProgress" draggable="true" ondragstart="drag(event)">
 					<h1 class="titleColumn">Em Progresso</h1>
 
 					<div id="inProgress-taskContent" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
@@ -102,7 +102,7 @@
 
 				<div
 					class="column"
-					id="done">
+					id="done" draggable="true" ondragstart="drag(event)">
 					<h1 class="titleColumn">Concluido</h1>
 
 					<div id="done-taskContent" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
@@ -130,6 +130,5 @@
 		<script src="./src/js/loadAplication.js"></script>
 		<script src="./src/js/bgColor.js"></script>
 		<script src="./src/js/index.js"></script>
-		<script src="./src/js/drag&drop.js"></script>
 	</body>
 </html>
