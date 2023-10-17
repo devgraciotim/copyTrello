@@ -55,7 +55,7 @@
 					id="todo">
 					<h1 class="titleColumn">A Fazer</h1>
 
-					<div id="todo-taskContent"></div>
+					<div id="todo-taskContent" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
 					<form>
 						<label for="todo-taskNameInput">Nome:</label>
@@ -80,7 +80,7 @@
 					id="inProgress">
 					<h1 class="titleColumn">Em Progresso</h1>
 
-					<div id="inProgress-taskContent"></div>
+					<div id="inProgress-taskContent" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
 					<form>
 						<label for="inProgress-taskNameInput">Nome:</label>
@@ -105,7 +105,7 @@
 					id="done">
 					<h1 class="titleColumn">Concluido</h1>
 
-					<div id="done-taskContent"></div>
+					<div id="done-taskContent" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
 					<form>
 						<label for="done-taskNameInput">Nome:</label>
