@@ -21,7 +21,8 @@ function addTask(columnId) {
 function createTaskElements(taskName, taskDescription) {
   const newTaskElement = document.createElement("div");
   newTaskElement.className = "taskElement";
-  newTaskElement.draggable = 'true'
+  newTaskElement.id = `task-${Date.now()}`
+  newTaskElement.draggable = true
   newTaskElement.addEventListener('dragstart', drag)
 
   const taskTitle = document.createElement("h2");
@@ -113,3 +114,4 @@ function drop(ev) {
   var data = ev.dataTransfer.getData("text");
   ev.target.appendChild(document.getElementById(data));
 }
+
