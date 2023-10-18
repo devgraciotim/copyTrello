@@ -28,10 +28,12 @@ function createTaskElements(taskName, taskDescription) {
 	const taskTitle = document.createElement("h2");
 	taskTitle.className = "taskTitle";
 	taskTitle.innerText = taskName;
+	taskTitle.preventDefault = true
 
 	const taskDescriptionElement = document.createElement("h4");
 	taskDescriptionElement.className = "taskDescription";
 	taskDescriptionElement.innerText = taskDescription;
+	taskDescription.preventDefault = true
 
 	const revomeTaksElement = document.createElement("div");
 	revomeTaksElement.innerHTML = '<i class="fa-solid fa-trash"></i>';
@@ -106,25 +108,24 @@ function allowDrop(ev) {
 
 function drag(ev) {
 	ev.dataTransfer.setData("text", ev.target.id);
-
 }
 
 function drop(ev) {
 	ev.preventDefault();
-	var data = ev.dataTransfer.getData("text");
-	ev.target.appendChild(document.getElementById(data));
-	let targetColumn = event.target;
+	const data = ev.dataTransfer.getData("text");
+	const draggedElement = document.getElementById(data)
+	let targetColumn = ev.target;
 
-	while (targetColumn && !targetColumn.classList.contains('column')){
+	while (targetColumn && !targetColumn.classList.contains('column')) {
 		targetColumn = targetColumn.parentElement;
 	}
 
 	if(targetColumn) {
 		const newTask = createTaskElements(
-			draggedElement.querySelector('.task-name').innerText,
-			draggedElement.querySelector('.task-description').innerText,
+			draggedElement.querySelector('.taskTitle').innerText,
+			draggedElement.querySelector('.taskDescription').innerText
 		);
-		targetColumn.querySelector('.tasks').appendChild(newTask);
+		targetColumn.querySelector('.taskContainer').appendChild(newTask);
 		draggedElement.parentElement.removeChild(draggedElement);
 		saveTasks();
 	}

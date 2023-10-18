@@ -52,14 +52,17 @@
 			<div class="columns">
 				<div
 					class="column"
-					id="todo">
+					id="todo"
+					ondrop="drop(event)"
+					ondragover="allowDrop(event)">
 					<h1 class="titleColumn">A Fazer</h1>
 
 					<div
 						id="todo-taskContent"
 						ondragstart="drag(event)"
 						ondrop="drop(event)"
-						ondragover="allowDrop(event)"></div>
+						ondragover="allowDrop(event)"
+						class="taskContainer"></div>
 
 					<form>
 						<label for="todo-taskNameInput">Nome:</label>
@@ -81,7 +84,9 @@
 
 				<div
 					class="column"
-					id="inProgress">
+					id="inProgress"
+					ondrop="drop(event)"
+					ondragover="allowDrop(event)">
 					<h1 class="titleColumn">Em Progresso</h1>
 
 
@@ -89,7 +94,8 @@
 						id="inProgress-taskContent"
 						ondragstart="drag(event)"
 						ondrop="drop(event)"
-						ondragover="allowDrop(event)"></div>
+						ondragover="allowDrop(event)"
+						class="taskContainer"></div>
 
 					<form>
 						<label for="inProgress-taskNameInput">Nome:</label>
@@ -111,14 +117,17 @@
 
 				<div
 					class="column"
-					id="done">
+					id="done"
+					ondrop="drop(event)"
+					ondragover="allowDrop(event)">
 					<h1 class="titleColumn">Concluido</h1>
 
 					<div
 						id="done-taskContent"
 						ondragstart="drag(event)"
 						ondrop="drop(event)"
-						ondragover="allowDrop(event)"></div>
+						ondragover="allowDrop(event)"
+						class="taskContainer"></div>
 
 					<form>
 						<label for="done-taskNameInput">Nome:</label>
