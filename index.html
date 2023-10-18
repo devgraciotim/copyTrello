@@ -49,13 +49,17 @@
 		</header>
 
 		<section id="mainContent">
-			<div class="columns" ondrop="drop(event)" ondragover="allowDrop(event)">
+			<div class="columns">
 				<div
 					class="column"
-					id="todo" draggable="true" ondragstart="drag(event)">
+					id="todo">
 					<h1 class="titleColumn">A Fazer</h1>
 
-					<div id="todo-taskContent" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+					<div
+						id="todo-taskContent"
+						ondragstart="drag(event)"
+						ondrop="drop(event)"
+						ondragover="allowDrop(event)"></div>
 
 					<form>
 						<label for="todo-taskNameInput">Nome:</label>
@@ -77,10 +81,15 @@
 
 				<div
 					class="column"
-					id="inProgress" draggable="true" ondragstart="drag(event)">
+					id="inProgress">
 					<h1 class="titleColumn">Em Progresso</h1>
 
-					<div id="inProgress-taskContent" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+					<div
+						id="inProgress-taskContent"
+						draggable="true"
+						ondragstart="drag(event)"
+						ondrop="drop(event)"
+						ondragover="allowDrop(event)"></div>
 
 					<form>
 						<label for="inProgress-taskNameInput">Nome:</label>
@@ -102,10 +111,14 @@
 
 				<div
 					class="column"
-					id="done" draggable="true" ondragstart="drag(event)">
+					id="done">
 					<h1 class="titleColumn">Concluido</h1>
 
-					<div id="done-taskContent" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+					<div
+						id="done-taskContent"
+						ondragstart="drag(event)"
+						ondrop="drop(event)"
+						ondragover="allowDrop(event)"></div>
 
 					<form>
 						<label for="done-taskNameInput">Nome:</label>
