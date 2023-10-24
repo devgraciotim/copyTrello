@@ -46,4 +46,5 @@ pickr
 document.addEventListener("DOMContentLoaded", function () {
 	const loadBgColor = localStorage.getItem("bgColor");
 	document.querySelector("body").style.backgroundColor = loadBgColor;
+	document.querySelector("color-picker").style.backgroundColor = loadBgColor;
 });
