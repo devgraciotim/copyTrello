@@ -40,4 +40,10 @@ pickr
 		const rgbaColorSave = color.toRGBA().toString();
 		console.log(rgbaColorSave);
 		document.querySelector("body").style.backgroundColor = rgbaColorSave;
+		localStorage.setItem("bgColor", rgbaColorSave);
 	});
+
+document.addEventListener("DOMContentLoaded", function () {
+	const loadBgColor = localStorage.getItem("bgColor");
+	document.querySelector("body").style.backgroundColor = loadBgColor;
+});
