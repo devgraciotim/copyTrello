@@ -1,3 +1,5 @@
+//Adiciona tarefas a uma coluna específica.
+//Valida entrada, cria elementos de tarefa e os anexa.
 function addTask(columnId) {
 	const taskName = document.getElementById(`${columnId}-taskNameInput`).value;
 	const taskDescription = document.getElementById(
@@ -18,6 +20,8 @@ function addTask(columnId) {
 	saveTasks();
 }
 
+//Cria elementos HTML para representar uma tarefa.
+//Retorna um elemento de tarefa com título, descrição e botão de remoção.
 function createTaskElements(taskName, taskDescription) {
 	const newTaskElement = document.createElement("div");
 	newTaskElement.className = "taskElement";
@@ -45,6 +49,8 @@ function createTaskElements(taskName, taskDescription) {
 	return newTaskElement;
 }
 
+//Salva as tarefas no armazenamento local (localStorage).
+//Coleta detalhes das tarefas e armazena em JSON
 function saveTasks() {
 	const columns = document.querySelectorAll(".column");
 	const tasks = {};
@@ -67,6 +73,8 @@ function saveTasks() {
 	localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+//Carrega tarefas do armazenamento local e as adiciona.
+//Itera pelas colunas e cria elementos de tarefa correspondentes.
 function loadTasks() {
 	const columns = document.querySelectorAll(".column");
 	const tasks = JSON.parse(localStorage.getItem("tasks"));
@@ -92,6 +100,8 @@ function loadTasks() {
 	}
 }
 
+//Permite a remoção de tarefas com confirmação.
+//Remove o elemento da tarefa e atualiza o armazenamento.
 function removeTask(taskElement) {
 	const confirmation = confirm("Deseja remover a Task?");
 	if (confirmation) {
@@ -102,14 +112,20 @@ function removeTask(taskElement) {
 
 loadTasks();
 
+//Permite a soltura de elementos em uma área.
+//Usado em eventos "dragover" para permitir soltar.
 function allowDrop(ev) {
 	ev.preventDefault();
 }
 
+//Inicia operação de arrastar e soltar.
+//Define dados arrastados (ID do elemento).
 function drag(ev) {
 	ev.dataTransfer.setData("text", ev.target.id);
 }
 
+//Lida com a soltura de elementos, movendo tarefas.
+//Cria uma nova tarefa na coluna de destino.
 function drop(ev) {
 	ev.preventDefault();
 	const data = ev.dataTransfer.getData("text");
