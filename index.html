@@ -3,6 +3,13 @@
 	<head>
 		<link
 			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css" />
+		<!-- 'nano' theme -->
+		<link
+			rel="stylesheet"
+			href="./src/css/pickr.css" />
+		<link
+			rel="stylesheet"
 			href="./src/css/header.css" />
 		<link
 			rel="stylesheet"
@@ -21,31 +28,7 @@
 	<body>
 		<header>
 			<h1>Copy Trello</h1>
-			<button
-				onclick="toggleColorPick()"
-				class="buttonColor">
-				<i class="fa-solid fa-paint-roller"></i>
-			</button>
-			<div id="colorPick">
-				<button
-					style="background-color: #630000"
-					onclick="changeColor('#630000')"></button>
-				<button
-					style="background-color: #070e70"
-					onclick="changeColor('#070e70')"></button>
-				<button
-					style="background-color: #385513"
-					onclick="changeColor('#385513')"></button>
-				<button
-					style="background-color: #590374"
-					onclick="changeColor('#590374')"></button>
-				<button
-					style="background-color: #881843"
-					onclick="changeColor('#881843')"></button>
-				<button
-					style="background-color: #75880c"
-					onclick="changeColor('#75880c')"></button>
-			</div>
+			<div class="color-picker"></div>
 		</header>
 
 		<section id="mainContent">
@@ -88,7 +71,6 @@
 					ondrop="drop(event)"
 					ondragover="allowDrop(event)">
 					<h1 class="titleColumn">Em Progresso</h1>
-
 
 					<div
 						id="inProgress-taskContent"
@@ -149,6 +131,8 @@
 			</div>
 		</section>
 
+		<script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+		<script src="./src/js/pickr.js"></script>
 		<script src="./src/js/loadAplication.js"></script>
 		<script src="./src/js/bgColor.js"></script>
 		<script src="./src/js/index.js"></script>
