@@ -3,12 +3,13 @@ const pickr = Pickr.create({
 	theme: "nano", // or 'monolith', or 'nano'
 
 	swatches: [
-		"rgba(244, 67, 54, 1)",
-		"rgba(233, 30, 99, 0.95)",
-		"rgba(156, 39, 176, 0.9)",
-		"rgba(103, 58, 183, 0.85)",
-		"rgba(63, 81, 181, 0.8)",
-		"rgba(33, 150, 243, 0.75)",
+		"#0015FF",
+		"#FF0000",
+		"#E9FF00",
+		"#00FF16",
+		"#FF00D3",
+		"#FF8100",
+		"#00D4FF",
 	],
 
 	components: {
@@ -19,13 +20,13 @@ const pickr = Pickr.create({
 
 		// Input / output Options
 		interaction: {
-			hex: true,
-			rgba: true,
+			hex: false,
+			rgba: false,
 			hsla: false,
 			hsva: false,
 			cmyk: false,
 			input: true,
-			clear: true,
+			clear: false,
 			save: true,
 		},
 	},
