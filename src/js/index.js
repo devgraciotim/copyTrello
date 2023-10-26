@@ -55,14 +55,18 @@ function createTaskElements(taskName, taskDescription) {
 
 // SALVA AS TASKS
 function saveTasks() {
+	// CRIA UMA VARIAVEL PARA AS COLUNAS (STRING)
 	const columns = document.querySelectorAll(".column");
+	// CRIA UM OBJETO PARA GUARDAR AS TASKS NO LOCAL STORAGE DO NAVEGADOR
 	const tasks = {};
 
+	// UM FOREACH PARA CADA COLUNA
 	columns.forEach((column) => {
 		const columnId = column.id;
 		const tasksColumn = column.querySelectorAll(".taskElement");
 		const taskContent = [];
 
+		// UM FOREACH PARA CADA TASK DENTRO DA RESPECTIVA COLUNA
 		tasksColumn.forEach((task) => {
 			const taskName = task.querySelector(".taskTitle").innerText;
 			const taskDescription = task.querySelector(".taskDescription").innerText;
