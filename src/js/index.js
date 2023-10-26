@@ -1,3 +1,4 @@
+// ADICIONA TASK
 function addTask(columnId) {
 	const taskName = document.getElementById(`${columnId}-taskNameInput`).value;
 	const taskDescription = document.getElementById(
@@ -17,7 +18,9 @@ function addTask(columnId) {
 
 	saveTasks();
 }
+// ADICIONA TASK
 
+// CRIA OS ELEMENTOS DAS TASKS
 function createTaskElements(taskName, taskDescription) {
 	const newTaskElement = document.createElement("div");
 	newTaskElement.className = "taskElement";
@@ -42,7 +45,9 @@ function createTaskElements(taskName, taskDescription) {
 
 	return newTaskElement;
 }
+// CRIA OS ELEMENTOS DAS TASKS
 
+// SALVA AS TASKS
 function saveTasks() {
 	const columns = document.querySelectorAll(".column");
 	const tasks = {};
@@ -63,7 +68,9 @@ function saveTasks() {
 
 	localStorage.setItem("tasks", JSON.stringify(tasks));
 }
+// SALVA AS TASKS
 
+// CARREGA AS TASKS
 function loadTasks() {
 	const columns = document.querySelectorAll(".column");
 	const tasks = JSON.parse(localStorage.getItem("tasks"));
@@ -88,7 +95,9 @@ function loadTasks() {
 		});
 	}
 }
+// CARREGA AS TASKS
 
+// REMOVE TASK SELECIONADA
 function removeTask(taskElement) {
 	const confirmation = confirm("Deseja remover a Task?");
 	if (confirmation) {
@@ -96,17 +105,23 @@ function removeTask(taskElement) {
 		saveTasks();
 	}
 }
+// REMOVE TASK SELECIONADA
 
 loadTasks();
 
+// PERMITIR DROP DE TASK
 function allowDrop(ev) {
 	ev.preventDefault();
 }
+// PERMITIR DROP DE TASK
 
+// FUNCAO DE ARRASTO DE TASK
 function drag(ev) {
 	ev.dataTransfer.setData("text", ev.target.id);
 }
+// FUNCAO DE ARRASTO DE TASK
 
+// DROP DE TASK
 function drop(ev) {
 	ev.preventDefault();
 	const data = ev.dataTransfer.getData("text");
@@ -127,3 +142,4 @@ function drop(ev) {
 		saveTasks();
 	}
 }
+// DROP DE TASK
