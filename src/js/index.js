@@ -22,6 +22,7 @@ function addTask(columnId) {
 
 // CRIA OS ELEMENTOS DAS TASKS
 function createTaskElements(taskName, taskDescription) {
+	// PRIMEIRAMENTE CRIA OS ELEMENTOS E ATRIBUI PROPRIEDADES
 	const newTaskElement = document.createElement("div");
 	newTaskElement.className = "taskElement";
 	newTaskElement.id = `task-${Date.now()}`;
@@ -40,10 +41,15 @@ function createTaskElements(taskName, taskDescription) {
 	removeTaskElement.innerHTML = '<i class="fa-solid fa-trash"></i>';
 	removeTaskElement.className = "removeTaskElement";
 	removeTaskElement.addEventListener("click", () => removeTask(newTaskElement));
+	// PRIMEIRAMENTE CRIA OS ELEMENTOS E ATRIBUI PROPRIEDADES
 
+	// FAZ O APPEND(ADICAO) DOS ELEMENTOS NO HTML
 	newTaskElement.append(taskTitle, taskDescriptionElement, removeTaskElement);
+	// FAZ O APPEND(ADICAO) DOS ELEMENTOS NO HTML
 
+	// RETORNA O TASK CRIADA NA FUNCAO
 	return newTaskElement;
+	// RETORNA O TASK CRIADA NA FUNCAO
 }
 // CRIA OS ELEMENTOS DAS TASKS
 
