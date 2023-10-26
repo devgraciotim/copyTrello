@@ -5,9 +5,7 @@ function addTask(columnId) {
 	).value;
 
 	if (taskName.trim() !== "") {
-		document
-			.getElementById(`${columnId}-taskContent`)
-			.appendChild(createTaskElements(taskName, taskDescription));
+		document.getElementById(`${columnId}-taskContent`).appendChild(createTaskElements(taskName, taskDescription));
 
 		document.getElementById(`${columnId}-taskNameInput`).value = "";
 		document.getElementById(`${columnId}-taskDescription`).value = "";
@@ -28,12 +26,10 @@ function createTaskElements(taskName, taskDescription) {
 	const taskTitle = document.createElement("h2");
 	taskTitle.className = "taskTitle";
 	taskTitle.innerText = taskName;
-	taskTitle.preventDefault = true
 
 	const taskDescriptionElement = document.createElement("h4");
 	taskDescriptionElement.className = "taskDescription";
 	taskDescriptionElement.innerText = taskDescription;
-	taskDescription.preventDefault = true
 
 	const revomeTaksElement = document.createElement("div");
 	revomeTaksElement.innerHTML = '<i class="fa-solid fa-trash"></i>';
@@ -63,7 +59,6 @@ function saveTasks() {
 		tasks[columnId] = taskContent;
 	});
 
-	console.log(tasks);
 	localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
@@ -120,7 +115,7 @@ function drop(ev) {
 		targetColumn = targetColumn.parentElement;
 	}
 
-	if(targetColumn) {
+	if (targetColumn) {
 		const newTask = createTaskElements(
 			draggedElement.querySelector('.taskTitle').innerText,
 			draggedElement.querySelector('.taskDescription').innerText
@@ -129,5 +124,4 @@ function drop(ev) {
 		draggedElement.parentElement.removeChild(draggedElement);
 		saveTasks();
 	}
-
 }

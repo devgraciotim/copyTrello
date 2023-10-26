@@ -6,9 +6,9 @@
 }
 
 header {
-	background-color: rgb(43, 43, 43);
+	background-color: rgb(255, 255, 255);
 	display: flex;
 	justify-content: space-between;
 	padding: 1rem 2rem;
-	color: white;
+	height: 8vh;
 }
