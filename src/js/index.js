@@ -5,7 +5,9 @@ function addTask(columnId) {
 	).value;
 
 	if (taskName.trim() !== "") {
-		document.getElementById(`${columnId}-taskContent`).appendChild(createTaskElements(taskName, taskDescription));
+		document
+			.getElementById(`${columnId}-taskContent`)
+			.appendChild(createTaskElements(taskName, taskDescription));
 
 		document.getElementById(`${columnId}-taskNameInput`).value = "";
 		document.getElementById(`${columnId}-taskDescription`).value = "";
@@ -31,12 +33,12 @@ function createTaskElements(taskName, taskDescription) {
 	taskDescriptionElement.className = "taskDescription";
 	taskDescriptionElement.innerText = taskDescription;
 
-	const revomeTaksElement = document.createElement("div");
-	revomeTaksElement.innerHTML = '<i class="fa-solid fa-trash"></i>';
-	revomeTaksElement.className = "revomeTaksElement";
-	revomeTaksElement.addEventListener("click", () => removeTask(newTaskElement));
+	const removeTaskElement = document.createElement("div");
+	removeTaskElement.innerHTML = '<i class="fa-solid fa-trash"></i>';
+	removeTaskElement.className = "removeTaskElement";
+	removeTaskElement.addEventListener("click", () => removeTask(newTaskElement));
 
-	newTaskElement.append(taskTitle, taskDescriptionElement, revomeTaksElement);
+	newTaskElement.append(taskTitle, taskDescriptionElement, removeTaskElement);
 
 	return newTaskElement;
 }
@@ -108,19 +110,19 @@ function drag(ev) {
 function drop(ev) {
 	ev.preventDefault();
 	const data = ev.dataTransfer.getData("text");
-	const draggedElement = document.getElementById(data)
+	const draggedElement = document.getElementById(data);
 	let targetColumn = ev.target;
 
-	while (targetColumn && !targetColumn.classList.contains('column')) {
+	while (targetColumn && !targetColumn.classList.contains("column")) {
 		targetColumn = targetColumn.parentElement;
 	}
 
 	if (targetColumn) {
 		const newTask = createTaskElements(
-			draggedElement.querySelector('.taskTitle').innerText,
-			draggedElement.querySelector('.taskDescription').innerText
+			draggedElement.querySelector(".taskTitle").innerText,
+			draggedElement.querySelector(".taskDescription").innerText
 		);
-		targetColumn.querySelector('.taskContainer').appendChild(newTask);
+		targetColumn.querySelector(".taskContainer").appendChild(newTask);
 		draggedElement.parentElement.removeChild(draggedElement);
 		saveTasks();
 	}
